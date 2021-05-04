@@ -23,10 +23,49 @@ $ios-systemyellow: rgb(255, 204, 0);
 $background-color: $ios-systemgray6;
 $page-background: linear-gradient(180deg, #FFFFFF 0%, $ios-systemgray5 100%);
 
-@mixin centered-column-flex {
+// Theme Constants
+$theme--border-radius: 4px;
+$theme--spacing: 8px;
+
+// Breakpoints
+$breakpoints: (
+  xs: 0px,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px
+);
+
+@mixin respond-above($breakpoint) {
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        // Write the media query.
+        @media (min-width: $breakpoint-value) { @content; }
+        // If the breakpoint doesn't exist in the map.
+    } @else { @warn 'Invalid breakpoint: #{$breakpoint}.'; }
+}
+
+@mixin respond-below($breakpoint) {
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        // Write the media query.
+        @media (max-width: ($breakpoint-value - 1)) { @content; }
+    // If the breakpoint doesn't exist in the map.
+    } @else { @warn 'Invalid breakpoint: #{$breakpoint}.'; }
+}
+
+@mixin centered-flex {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin centered-column-flex {
+    @include centered-flex;
     flex-direction: column;
 }
 

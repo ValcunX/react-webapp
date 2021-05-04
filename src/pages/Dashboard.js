@@ -1,6 +1,11 @@
+import NavBar from '../components/dashboard/NavBar'
+import '../styles/Dashboard.scss'
+
 function Dashboard() {
   return (
-    <div>Dashboard Page</div>
+    <div>
+      <NavBar />
+    </div>
   );
 }
 
