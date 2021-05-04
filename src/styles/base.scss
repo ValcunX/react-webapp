@@ -21,4 +21,16 @@ $ios-systemteal: rgb(90, 200, 250);
 $ios-systemyellow: rgb(255, 204, 0);
 
 $background-color: $ios-systemgray6;
-$page-background: linear-gradient(180deg, #FFFFFF 0%, $ios-systemgray6 100%)
+$page-background: linear-gradient(180deg, #FFFFFF 0%, $ios-systemgray5 100%);
+
+@mixin centered-column-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+// For theming
+:export {
+    $primary: $primary-color;
+}
