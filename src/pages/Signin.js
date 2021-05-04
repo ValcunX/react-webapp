@@ -1,123 +1,95 @@
-import "../styles/App.scss";
-import { TextField, Button, Card, CardContent } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import clsx from 'clsx';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+
+import '../styles/Signin.scss';
+
 function Signin() {
-  const useStyles = makeStyles({
-    main: {
-      position: "absolute",
-      width: "350px",
-      height: "467px",
-      left: "calc(50% - 350px/2)",
-      top: "calc(50% - 467px/2 - 0.5px)",
-      textAlign: "center",
-    },
-
-    card: {
-      height: "300px",
-      left: "0px",
-      right: "0px",
-      top: "110px",
-    },
-
-    heading: {
-      position: "absolute",
-      height: "80px",
-      left: "0px",
-      right: "0px",
-      top: "0px",
-    },
-    
-    title: {
-      height: "56px",
-      top: "0px",
-
-      /* Headline 3 */
-
-      fontStyle: "normal",
-      fontWeight: "normal",
-      fontSize: "48px",
-      lineHeight: "56px",
-
-      /* identical to box height, or 117% */
-    },
-
-    subheading: {
-      height: "24px",
-      bottom: "0px",
-      /* Headline 6 */
-
-      fontWeight: "500",
-      fontSize: "20px",
-      lineHeight: "24px",
-      /* identical to box height, or 120% */
-
-      textAlign: "center",
-      letterSpacing: "0.15px",
-    },
-
-    username: {
-      height: "72px",
-      left: "20px",
-      right: "20px",
-      top: "40px",
-    },
-
-    password: {
-      top: "132px",
-    },
-
-    signin: {
-      position: "absolute",
-      height: "36px",
-      left: "20px",
-      right: "20px",
-      bottom: "40px",
-    },
-
-    signup: {
-      position: "absolute",
-      height: "44px",
-      left: "0px",
-      right: "0px",
-      bottom: "0px",
-    },
+  const [values, setValues] = React.useState({
+    password: '',
+    showPassword: false,
   });
 
-  const classes = useStyles();
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <div className={classes.main}>
-      <form>
-        <div>
-          <h1 className={classes.title}>ValcunX</h1>
-          <h5 className={classes.subheading}>Sign In to Dashboard</h5>
+    <div className='signin-root'>
+      <div className='signin-container'>
+        <div className='signin-header'>
+          <Typography variant="h3">ValcunX</Typography>
+          <Typography variant="h6">Sign In to Dashboard</Typography>
         </div>
-        <Card variant="outlined" className={classes.card}>
+        <Card className='signin-card' elevation='4'>
           <CardContent>
-            <div className={classes.username}>
-              <TextField
-                id="outlined-basic"
-                label="Username"
-                variant="outlined"
-              />
-            </div>
-            <div className={classes.password}>
-              <TextField
-                id="outlined-basic"
-                label="Password"
-                variant="outlined"
-              />
-            </div>
-            <div className={classes.signin}>
-              <Button variant="contained">Sign In</Button>
-            </div>
+            <form noValidate>
+              {/* Username */}
+              {/* className={clsx(classes.margin, classes.textField)} */}
+              <TextField id="username" label="Username" variant="outlined" className='signin-username'/>
+
+              {/* Password */}
+              {/* className={clsx(classes.margin, classes.textField)} */}
+              <FormControl variant="outlined" className='signin-password-control'>
+                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-password"
+                  className='signin-password'
+                  type={values.showPassword ? 'text' : 'password'}
+                  value={values.password}
+                  onChange={handleChange('password')}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  labelWidth={70}
+                />
+              </FormControl>
+
+              {/* Sign In Button */}
+              <Button variant="contained" color="primary" classes={{ root: "sign-in-button" }}>
+                <Typography variant="button">
+                  Sign In
+                  </Typography>
+              </Button>
+            </form>
           </CardContent>
         </Card>
-        <div>
-          <Button variant="outlined" className={classes.signup}>
-            New to ValcunX? Sign Up
+        <div className='sign-up-button-div'>
+          <Button variant="outlined" color="primary" classes={{ root: "sign-up-button" }}>
+            <Typography variant="button">
+              New to ValcunX? <span className='create-an-account'>Create an account.</span>
+            </Typography>
           </Button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
