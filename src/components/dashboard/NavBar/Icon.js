@@ -1,7 +1,7 @@
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import '../../../styles/Dashboard.scss';
+import '../styles/NavBar.scss';
 
 function Icon() {
   return (

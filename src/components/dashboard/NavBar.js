@@ -9,7 +9,7 @@ import {default as NavBarSearchBar} from './NavBar/SearchBar';
 import {default as NavBarToolbarMenu} from './NavBar/ToolbarMenu'
 import {default as NavBarToolbarMobileMenu} from './NavBar/ToolbarMobileMenu'
 
-import '../../styles/Dashboard.scss';
+import './styles/NavBar.scss';
 
 function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);

@@ -4,7 +4,7 @@ import NotificationsIconOutlined from '@material-ui/icons/NotificationsOutlined'
 import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
-import '../../../styles/Dashboard.scss';
+import '../styles/NavBar.scss';
 
 function Toolbar({menuId, onProfileMenuOpen, mobileMenuId, onMobileMenuOpen}) {
   return (

@@ -1,7 +1,7 @@
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 
-import '../../../styles/Dashboard.scss';
+import '../styles/NavBar.scss';
 
 function SearchBar() {
   return (

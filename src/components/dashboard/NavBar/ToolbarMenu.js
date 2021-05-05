@@ -1,7 +1,7 @@
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-import '../../../styles/Dashboard.scss';
+import '../styles/NavBar.scss';
 
 function ToolbarMenu({ id, anchorEl, open, onClose}) {
   return (

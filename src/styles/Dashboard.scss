@@ -1,95 +1,19 @@
 @import 'base';
 
-.navbar--grow {
+.dashboard-root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    background: $page-background;
+}
+
+.navbar--root {
+    display: block;
+}
+
+.dashboard-collection-view-root {
+    background-color: red;
     flex-grow: 1;
 }
 
-.navbar--menu-button {
-    margin-right: $theme--spacing * 2;
-    color: inherit;
-}
-
-.navbar--title {
-    display: none;
-    
-   @include respond-above(sm) {
-       display: block;
-   }
-}
-
-.navbar--search {
-    position: relative;
-    border-radius: $theme--border-radius;
-    background-color: rgba(255, 255, 255, 0.15);
-
-    &:hover {
-        //   backgroundColor: fade(theme.palette.common.white, 0.25),
-        background-color: rgba(255, 255, 255, 0.25);
-    }
-    
-    margin-right: $theme--spacing * 2;
-    margin-left: 0px;
-    width: 100%;
-    
-    @include respond-above(sm) {
-        margin-left: $theme--spacing * 3;
-        width: auto;
-    }
-}
-
-.navbar--search-icon {
-    @include centered-flex;
-    
-    padding: $theme--spacing * 0 $theme--spacing * 2;
-    position: absolute;;
-    pointer-events: none;
-    height: 100%;
-}
-
-.navbar--search-input-root {
-    color: inherit;
-}
-
-.navbar--search-input-input {
-    padding: $theme--spacing * 1 $theme--spacing * 1 $theme--spacing * 1 $theme--spacing * 0;
-    padding-left: calc(1em + #{$theme--spacing * 4});
-    transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        
-    width: 100%;
-    @include respond-above(sm) {
-        width: 20ch;
-        &:focus {
-            width: 25ch;
-        }
-    }
-
-    @include respond-above(md) {
-        width: 30ch;
-        &:focus {
-            width: 40ch;
-        }
-    }
-
-    @include respond-above(lg) {
-        width: 40ch;
-        &:focus {
-            width: 60ch;
-        }
-    }
-}
-
-.navbar--section-desktop {
-    display: none;
-
-    @include respond-above(md) {
-        display: flex;
-    }
-}
-  
-.navbar--section-mobile {
-    display: flex;
-
-    @include respond-above(md) {
-        display: none;
-    }
-}

@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined';
 import NotificationsIconOutlined from '@material-ui/icons/NotificationsOutlined';
 
-import '../../../styles/Dashboard.scss';
+import '../styles/NavBar.scss';
 
 function ToolbarMobileMenu({id, anchorEl, open, onClose, onProfileMenuOpen}) {
   return (
