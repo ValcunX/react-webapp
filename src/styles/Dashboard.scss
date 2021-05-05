@@ -56,12 +56,25 @@
     transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         
     width: 100%;
-    @include respond-above(md) {
+    @include respond-above(sm) {
         width: 20ch;
+        &:focus {
+            width: 25ch;
+        }
+    }
+
+    @include respond-above(md) {
+        width: 30ch;
+        &:focus {
+            width: 40ch;
+        }
     }
 
     @include respond-above(lg) {
         width: 40ch;
+        &:focus {
+            width: 60ch;
+        }
     }
 }
 
