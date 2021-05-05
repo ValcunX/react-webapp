@@ -1,7 +1,7 @@
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import NotificationsIconOutlined from '@material-ui/icons/NotificationsOutlined';
+import AccountCircleOutlined from '@material-ui/icons/AccountCircleOutlined';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 import '../../../styles/Dashboard.scss';
@@ -12,7 +12,7 @@ function Toolbar({menuId, onProfileMenuOpen, mobileMenuId, onMobileMenuOpen}) {
       <div className='navbar--section-desktop'>
         <IconButton aria-label="show 0 new notifications" color="inherit">
           <Badge badgeContent={0} color="secondary">
-            <NotificationsIcon />
+            <NotificationsIconOutlined />
           </Badge>
         </IconButton>
 
@@ -24,7 +24,7 @@ function Toolbar({menuId, onProfileMenuOpen, mobileMenuId, onMobileMenuOpen}) {
           onClick={onProfileMenuOpen}
           color="inherit"
         >
-          <AccountCircle />
+          <AccountCircleOutlined />
         </IconButton>
       </div>
 
