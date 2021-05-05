@@ -1,0 +1,31 @@
+@import 'sign-base';
+
+.signup-root {
+    @include root;
+}
+
+.signup-container {
+    @include container;
+}
+
+.signup-card {
+    @include card('signup');
+}
+
+.signin-button-div {
+    @include button-div;
+}
+
+.signin-button {
+    @include button;
+}
+
+.sign-in, .tos {
+    color: $ios-systemblue;
+}
+
+.tos-div {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}

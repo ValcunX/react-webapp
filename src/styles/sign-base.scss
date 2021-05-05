@@ -1,0 +1,48 @@
+@import 'base';
+
+@mixin root {
+    @include centered-column-flex;
+    height: 100%;
+    background: $page-background;
+}
+
+@mixin container {
+    @include centered-column-flex;
+    width: 380px;
+}
+
+@mixin card($base-class) {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 60px 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+
+    .MuiCardContent-root {
+        padding: 0px;
+    }
+
+    .#{$base-class}-username, .#{$base-class}-email, .#{$base-class}-password-control, 
+        .#{$base-class}-password, .#{$base-class}-button {
+        width: 100%;
+    }
+
+    .#{$base-class}-email, .#{$base-class}-password-control, .#{$base-class}-button {
+        margin-top: 20px;
+    }
+}
+
+@mixin button-div {
+    width: 100%;
+}
+
+@mixin button {
+    width: 100%;
+    border-color: $primary-color;
+    
+    .MuiTypography-button {
+        font-weight: bold;
+        text-transform: none;    
+    }
+}

@@ -1,50 +1,25 @@
-@import 'base';
+@import 'sign-base';
 
 .signin-root {
-    @include centered-column-flex;
-    height: 100%;
-    background: $page-background;
+    @include root;
 }
 
 .signin-container {
-    @include centered-column-flex;
-    width: 380px;
+    @include container;
 }
 
 .signin-card {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 60px 40px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-
-    .MuiCardContent-root {
-        padding: 0px;
-    }
-
-    .signin-username, .signin-password-control, .signin-password, .signup-email {
-        width: 100%;
-    }
-
-    .signin-password-control, .sign-in-button, .signup-email {
-        margin-top: 20px;
-    }
+    @include card('signin');
 }
 
 .sign-up-button-div {
-    width: 100%;
+    @include button-div
 }
-.sign-in-button, .sign-up-button {
-    width: 100%;
-    border-color: $primary-color;
-    
-    .MuiTypography-button {
-        font-weight: bold;
-        text-transform: none;    
-    }
 
-    .create-an-account {
-        color: $ios-systemblue;
-    }
+.signup-button {
+    @include button;
+}
+
+.create-an-account {
+    color: $ios-systemblue;
 }
