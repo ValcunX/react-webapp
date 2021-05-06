@@ -19,7 +19,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start:dev_docker": "docker run --name valcunx_react-webapp_dev --rm -it -v $INIT_CWD:'/home/ubuntu/workspace' vulcanx/dev-ubuntu",
+    "start:docker": "docker run --rm -it --name valcunx_react-webapp -p 8082:80 vulcanx/react-webapp",
+    "build:docker": "docker build -t vulcanx/react-webapp -f docker/Dockerfile .",
+    "publish:docker": "docker push vulcanx/react-webapp"
   },
   "eslintConfig": {
     "extends": [
