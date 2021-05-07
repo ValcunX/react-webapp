@@ -8,17 +8,16 @@ import ProjectCard from '../components/dashboard/ProjectCard';
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 
 import '../styles/Dashboard.scss'
-
-const tileData = [];
-for(let i = 0; i < 1; i++) {
-  tileData.push({
-    img: 'https://wp.technologyreview.com/wp-content/uploads/2021/04/for_press_release-2.jpg',
-    title: 'Image',
-    author: 'author',
-  },)
-}
+import fixtures from '../static/fixtures/dashboard.json'
 
 function Dashboard() {
+  let location = useLocation();
+  const queryParams = Object.fromEntries(location.search.slice(1).split('&').map((item) => item.split('=')));
+  
+  // TODO: Connect backend
+  const userProjects = (queryParams['fixtures']) ? fixtures : {};
+  console.log({ userProjects })
+
   return (
     <div class="dashboard-root">
       <div className="navbar--root"><NavBar /></div>
@@ -41,9 +40,9 @@ function Dashboard() {
         <div className="projects-gridview">
           {/* TODO: Responsive cols */}
           <GridList cellHeight='auto' className='projects-gridlist' cols={5}>
-            {tileData.map((tile) => (
-              <GridListTile key={tile.img} cols={1}>
-                <ProjectCard />
+            {userProjects.map((project) => (
+              <GridListTile key={project._id} cols={1}>
+                <ProjectCard project={project}/>
               </GridListTile>
             ))}
           </GridList>
