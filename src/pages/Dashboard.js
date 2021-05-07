@@ -1,10 +1,10 @@
-import NavBar from '../components/dashboard/NavBar'
+import NavBar from '../components/dashboard/NavBar';
+import { useLocation } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ProjectCard from '../components/dashboard/ProjectCard';
-
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 
 import '../styles/Dashboard.scss'

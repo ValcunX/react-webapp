@@ -55,6 +55,7 @@
 
     .project-card-media {
         height: 150px;
+        object-fit: contain;
     }
 
     .project-card-content {
@@ -74,10 +75,7 @@
                     width: 24px;
                     height: 24px;
                     margin-right: $theme--spacing * 1;
-                }
-
-                .project-card-title {
-
+                    object-fit: contain;
                 }
             }
 
