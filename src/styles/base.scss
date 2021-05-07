@@ -3,6 +3,11 @@ $primary-color-light: #434345;
 $primary-color-dark: #000000;
 $text-on-primary: #FFFFFF;
 
+$secondary-color: #007AFF;
+$secondary-color-light: #69A8FF;
+$secondary-color-dark: #004FCB;
+$text-on-secondary: #FFFFFF;
+
 $ios-systemgray: #8E8E93;
 $ios-systemgray2: #AEAEB2;
 $ios-systemgray3: #C7C7CC;
@@ -72,4 +77,5 @@ $breakpoints: (
 // For theming
 :export {
     $primary: $primary-color;
+    $secondary: $secondary-color;
 }

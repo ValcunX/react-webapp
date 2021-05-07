@@ -5,8 +5,7 @@ console.log(baseStyle.primary)
 
 export const theme = createMuiTheme({
   palette: {
-    primary: {
-      main: '#1C1C1E',
-    },
+    primary: { main: '#1C1C1E' },
+    secondary: { main: '#007AFF' },
   }
 })
