@@ -5,27 +5,31 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
+import { getIconForLanguage } from '../../helpers/LanguageIcons';
 
 import '../../styles/Dashboard.scss';
 
 
-function ProjectCard() {
+function ProjectCard({ project }) {
+  const last_mdate = new Date(Date.parse(project.last_mdate));
+
   return (
-    <Card className='project-card'>
+    <Card className='project-card' elevation="2">
       <CardActionArea>
         <CardMedia
           className='project-card-media'
-          image="https://wp.technologyreview.com/wp-content/uploads/2021/04/for_press_release-2.jpg"
-          title="Project"
+          title={project.name}
+          src={getIconForLanguage(project.language)}
+          component="img"
         />
         <CardContent className='project-card-content'>
           <div className='project-card-title-col'>
             <div className='project-card-title-row'>
-              <img className='project-card-icon' src="https://wp.technologyreview.com/wp-content/uploads/2021/04/for_press_release-2.jpg" />
-              <Typography variant="subtitle1" className='project-card-title'>Project Name</Typography>
+              <img className='project-card-icon' src={getIconForLanguage(project.language)} />
+              <Typography variant="subtitle1" className='project-card-title'>{project.name}</Typography>
             </div>
             <div className='project-card-subtitle-row'>
-              <Typography variant="subtitle2" className='project-card-last-mdate'>Last Modified Time</Typography>
+              <Typography variant="subtitle2" className='project-card-last-mdate'>{last_mdate.toLocaleString('en-US')}</Typography>
             </div>
           </div>
           <div className='project-card-option-col' color='primary'>
