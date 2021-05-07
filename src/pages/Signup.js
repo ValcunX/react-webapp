@@ -86,7 +86,7 @@ function Signup() {
         <div className='signin-button-div'>
           <Button variant="outlined" color="primary" classes={{ root: "signin-button" }}>
             <Typography variant="button">
-              Already have an account? <span className='sign-in'>Sign In</span>
+              Already have an account? <span className='signin'>Sign In</span>
             </Typography>
           </Button>
         </div>

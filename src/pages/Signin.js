@@ -82,7 +82,7 @@ function Signin() {
             </form>
           </CardContent>
         </Card>
-        <div className='sign-up-button-div'>
+        <div className='signup-button-div'>
           <Button variant="outlined" color="primary" classes={{ root: "signup-button" }}>
             <Typography variant="button">
               New to ValcunX? <span className='create-an-account'>Create an account.</span>
