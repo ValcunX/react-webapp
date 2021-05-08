@@ -1,0 +1,48 @@
+@import '../../../styles/base';
+
+.navbar--grow {
+    flex-grow: 1;
+}
+
+.navbar--menu-button {
+    margin-right: $theme--spacing * 2;
+    color: inherit;
+}
+
+.navbar--title {
+    display: none;
+    
+   @include respond-above(sm) {
+       display: block;
+   }
+}
+
+.navbar--center {
+    display: flex;
+
+    div {
+        margin: $theme--spacing * 0 $theme--spacing * 2;
+    }
+}
+
+.navbar--button {
+    color: $text-on-primary;
+    border-color: $text-on-primary;
+    margin: $theme--spacing * 0 $theme--spacing * 2;
+}
+
+.navbar--section-desktop {
+    display: none;
+
+    @include respond-above(md) {
+        display: flex;
+    }
+}
+  
+.navbar--section-mobile {
+    display: flex;
+
+    @include respond-above(md) {
+        display: none;
+    }
+}
