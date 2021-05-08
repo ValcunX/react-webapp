@@ -23,14 +23,21 @@
         padding: 0px;
     }
 
-    .#{$base-class}-username, .#{$base-class}-email, .#{$base-class}-password-control, 
-        .#{$base-class}-password, .#{$base-class}-button {
+    .#{$base-class}-username, .#{$base-class}-email, .#{$base-class}-button {
         width: 100%;
     }
 
-    .#{$base-class}-email, .#{$base-class}-password-control, .#{$base-class}-button {
+    .#{$base-class}-email, .#{$base-class}-button {
         margin-top: 20px;
     }
+}
+
+.sign-password-control, .sign-password {
+    width: 100%;
+}
+
+.sign-password-control {
+    margin-top: 20px;
 }
 
 @mixin button-div {

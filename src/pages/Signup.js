@@ -24,20 +24,17 @@ function Signup() {
           <CardContent>
             <form noValidate>
               {/* Username */}
-              <TextField id="username" label="Username" variant="outlined" className='signup-username'/>
-              
+              <TextField id="username" label="Username" variant="outlined" className='signup-username' />
+
               {/* Email */}
-              <TextField id="email" label="Email" variant="outlined" className='signup-email'/>
+              <TextField id="email" label="Email" variant="outlined" className='signup-email' />
 
               {/* Password */}
-              
               <PasswordInput />
 
               {/* Sign In Button */}
               <Button variant="contained" color="primary" classes={{ root: "signup-button" }}>
-                <Typography variant="button">
-                  Sign Up
-                </Typography>
+                <Typography variant="button">Sign Up</Typography>
               </Button>
             </form>
           </CardContent>
@@ -53,7 +50,7 @@ function Signup() {
 
         <div className='tos-div'>
           <Typography variant="subtitle">
-            By creating an account, you agree to the <br/> <span className='tos'>Terms of Service</span>
+            By creating an account, you agree to the <br /> <span className='tos'>Terms of Service</span>
           </Typography>
         </div>
       </div>

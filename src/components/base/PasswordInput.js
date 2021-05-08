@@ -29,7 +29,7 @@ function PasswordInput() {
   };
   return (
     <div>
-      <FormControl variant="outlined" className="signin-password-control">
+      <FormControl variant="outlined" className="sign-password-control">
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
           id="outlined-adornment-password"

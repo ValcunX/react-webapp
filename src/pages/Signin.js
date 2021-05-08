@@ -23,19 +23,14 @@ function Signin() {
           <CardContent>
             <form noValidate>
               {/* Username */}
-              {/* className={clsx(classes.margin, classes.textField)} */}
-              <TextField id="username" label="Username" variant="outlined" className='signin-username'/>
+              <TextField id="username" label="Username" variant="outlined" className='signin-username' />
 
               {/* Password */}
-              {/* className={clsx(classes.margin, classes.textField)} */}
-              
               <PasswordInput />
 
               {/* Sign In Button */}
               <Button variant="contained" color="primary" classes={{ root: "signin-button" }}>
-                <Typography variant="button">
-                  Sign In
-                  </Typography>
+                <Typography variant="button">Sign In</Typography>
               </Button>
             </form>
           </CardContent>
