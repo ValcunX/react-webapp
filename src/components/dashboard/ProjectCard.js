@@ -34,6 +34,7 @@ function ProjectCard({ project }) {
           </div>
           <div className='project-card-option-col' color='primary'>
             <IconButton aria-label="more"
+              classes= {{ root: 'project-card-options' }}
               onMouseDown={event => event.stopPropagation()}
               onClick={event => {
                 event.stopPropagation();

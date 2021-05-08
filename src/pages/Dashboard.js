@@ -6,16 +6,24 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ProjectCard from '../components/dashboard/ProjectCard';
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
 import '../styles/Dashboard.scss'
 import fixtures from '../static/fixtures/dashboard.json'
 
-function Dashboard() {
-  let location = useLocation();
+function Dashboard({ width }) {
+  let location = useLocation();  
   const queryParams = Object.fromEntries(location.search.slice(1).split('&').map((item) => item.split('=')));
+  const getGridListCols = () => {
+    if (isWidthUp('xl', width)) return 5;
+    if (isWidthUp('lg', width)) return 4;
+    if (isWidthUp('md', width)) return 3;
+    if (isWidthUp('sm', width)) return 2;
+    return 1;
+  }
   
   // TODO: Connect backend
-  const userProjects = (queryParams['fixtures']) ? fixtures : {};
+  const userProjects = (queryParams['fixtures']) ? fixtures : [];
   console.log({ userProjects })
 
   return (
@@ -23,7 +31,7 @@ function Dashboard() {
       <div className="navbar--root"><NavBar /></div>
       <div className="dashboard-projects-root">
         <div className="projects-header">
-          <Typography variant="h5">
+          <Typography className="projects-header-title" variant="h5">
             Your Projects
           </Typography>
           <div className="dashboard-grow"></div>
@@ -39,14 +47,13 @@ function Dashboard() {
 
         <div className="projects-gridview">
           {/* TODO: Responsive cols */}
-          <GridList cellHeight='auto' className='projects-gridlist' cols={5}>
+          <GridList cellHeight='auto' className='projects-gridlist' cols={getGridListCols()}>
             {userProjects.map((project) => (
               <GridListTile key={project._id} cols={1}>
                 <ProjectCard project={project}/>
               </GridListTile>
             ))}
-          </GridList>
-          
+          </GridList> 
         </div>
       </div>
       {/* <div className="dashboard-footer">#Todo: Footer</div> */}
@@ -54,4 +61,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default withWidth()(Dashboard);

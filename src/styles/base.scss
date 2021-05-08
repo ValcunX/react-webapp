@@ -74,6 +74,12 @@ $breakpoints: (
     flex-direction: column;
 }
 
+@mixin truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 // For theming
 :export {
     $primary: $primary-color;
