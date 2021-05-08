@@ -40,7 +40,7 @@ function NavBar() {
   
   return (
     <div className='navbar--grow'>
-      <AppBar position="static">
+      <AppBar position="static" elevation="8">
         <Toolbar>
           <NavBarIcon />
           <Typography className='navbar--title' variant="h6" noWrap>ValcunX</Typography>
