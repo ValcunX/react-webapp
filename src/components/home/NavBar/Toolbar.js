@@ -8,37 +8,17 @@ import '../styles/NavBar.scss';
 function Toolbar({ menuId, onProfileMenuOpen, mobileMenuId, onMobileMenuOpen }) {
   return (
     <>
-      <div className='navbar--section-desktop'>
-        {/* <IconButton aria-label="show 0 new notifications" color="inherit">
-          <Badge badgeContent={0} color="secondary">
-            <NotificationsIconOutlined />
-          </Badge>
-        </IconButton>
-
-        <IconButton
-          edge="end"
-          aria-label="account of current user"
-          aria-controls={menuId}
-          aria-haspopup="true"
-          onClick={onProfileMenuOpen}
-          color="inherit"
-        >
-          <AccountCircleOutlined />
-        </IconButton> */}
-        {/* <Button color="primary">
-          <Typography variant="button">Primary</Typography>
-        </Button> */}
-        <Button classes={{ root: 'navbar--button' }}>
+      <div className='home-navbar--section-desktop'>
+        <Button classes={{ root: 'home-navbar--button' }}>
           <Typography variant="button">Sign Up</Typography>
         </Button>
 
-        <Button classes={{ root: 'navbar--button' }} variant="outlined">
+        <Button classes={{ root: 'home-navbar--button' }} variant="outlined">
           <Typography variant="button">Sign In</Typography>
         </Button>
-
       </div>
 
-      <div className='navbar--section-mobile'>
+      <div className='home-navbar--section-mobile'>
         <IconButton
           aria-label="show more"
           aria-controls={mobileMenuId}

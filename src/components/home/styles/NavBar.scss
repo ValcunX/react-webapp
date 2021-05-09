@@ -1,37 +1,37 @@
 @import '../../../styles/base';
 
-.navbar--grow {
+.home-navbar--grow {
     flex-grow: 1;
 }
 
-.navbar--menu-button {
+.home-navbar--menu-button {
     margin-right: $theme--spacing * 2;
     color: inherit;
 }
 
-.navbar--title {
-    display: none;
-    
-   @include respond-above(sm) {
-       display: block;
-   }
+.home-navbar--title {
+    display: block;  
 }
 
-.navbar--center {
-    display: flex;
+.home-navbar--center {
+    display: none;
 
+    @include respond-above(md) {
+        display: flex;
+    }
+    
     div {
         margin: $theme--spacing * 0 $theme--spacing * 2;
     }
 }
 
-.navbar--button {
+.home-navbar--button {
     color: $text-on-primary;
     border-color: $text-on-primary;
     margin: $theme--spacing * 0 $theme--spacing * 2;
 }
 
-.navbar--section-desktop {
+.home-navbar--section-desktop {
     display: none;
 
     @include respond-above(md) {
@@ -39,7 +39,7 @@
     }
 }
   
-.navbar--section-mobile {
+.home-navbar--section-mobile {
     display: flex;
 
     @include respond-above(md) {
