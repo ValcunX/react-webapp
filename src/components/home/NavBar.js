@@ -3,10 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
-import {default as NavBarIcon} from './NavBar/Icon';
 import {default as NavBarToolbar} from './NavBar/Toolbar'
-import {default as NavBarSearchBar} from './NavBar/SearchBar';
-import {default as NavBarToolbarMenu} from './NavBar/ToolbarMenu'
 import {default as NavBarToolbarMobileMenu} from './NavBar/ToolbarMobileMenu'
 
 import './styles/NavBar.scss';
@@ -14,7 +11,6 @@ import './styles/NavBar.scss';
 function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -39,14 +35,21 @@ function NavBar() {
   const mobileMenuId = 'dashboard-search-account-menu-mobile';
   
   return (
-    <div className='navbar--grow'>
+    <div className='home-navbar--grow'>
       <AppBar position="static" elevation="8">
         <Toolbar>
-          <NavBarIcon />
-          <Typography className='navbar--title' variant="h6" noWrap>ValcunX</Typography>
-          <NavBarSearchBar />
-          <div className='navbar--grow' />
+          <Typography className='home-navbar--title' variant="h6" noWrap>ValcunX</Typography>
+          
+          <div className='home-navbar--grow' />
 
+          <div className="home-navbar--center">
+            <div><Typography variant="subtitle1" noWrap>Why ValcunX?</Typography></div>
+            <div><Typography variant="subtitle1" noWrap>Team</Typography></div>
+            <div><Typography variant="subtitle1" noWrap>About</Typography></div>
+          </div>
+
+          <div className='home-navbar--grow' />
+          
           <NavBarToolbar 
             menuId={menuId}
             onProfileMenuOpen={handleProfileMenuOpen}
@@ -63,8 +66,6 @@ function NavBar() {
         onClose={handleMobileMenuClose} 
         onProfileMenuOpen={handleProfileMenuOpen} 
       />
-
-      <NavBarToolbarMenu anchorEl={anchorEl} id={menuId} open={isMenuOpen} onClose={handleMenuClose} />      
     </div>
   );
 }

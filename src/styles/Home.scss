@@ -1,0 +1,116 @@
+@import 'base';
+
+.home-root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: $page-background;
+}
+
+.home-navbar-root {
+    display: block;
+}
+
+.home-hero {
+    margin: auto $theme--spacing * 4;
+    flex: 1 1 0;
+    min-height: 0px;
+
+
+    .home-hero-grid{
+        height: 100%;
+
+        .home-hero-image {
+            height: 100%;
+            background-image: url('../static/images/vscode-hero.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .home-hero-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .home-hero-content-vscode {
+                margin-bottom: $theme--spacing * 1.5;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .home-hero-content-vscode-icon {
+                    width: 100px;
+                    height: 100px;
+                    background-image: url('../static/images/vscode-icon.png');
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+
+                .home-hero-content-vscode-content {
+                    flex: 1 1 0;
+                    min-width: 0px;
+
+                    .home-hero-content-vscode-headline {
+                        margin-bottom: 10px;
+                        
+                        h6 {
+                            font-weight: bold;
+                        }
+                    }
+
+                    .home-hero-content-vscode-caption {
+                        margin-bottom: 10px;
+
+                        span span {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+
+            .home-hero-content-docker {
+                margin-top: $theme--spacing * 1.5;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                salign-items: center;
+
+                .home-hero-content-docker-icon {
+                    width: 100px;
+                    height: 100px;
+                    background-image: url('../static/images/docker-icon.png');
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+
+                .home-hero-content-docker-content {
+                    flex: 1 1 0;
+                    min-width: 0px;
+
+                    .home-hero-content-docker-headline {
+                        margin-bottom: 10px;
+                        
+                        h6 {
+                            font-weight: bold;
+                            text-align: right;
+                        }
+                    }
+
+                    .home-hero-content-docker-caption {
+                        margin-bottom: 10px;
+
+                        span span {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

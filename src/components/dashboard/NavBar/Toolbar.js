@@ -28,7 +28,7 @@ function Toolbar({menuId, onProfileMenuOpen, mobileMenuId, onMobileMenuOpen}) {
         </IconButton>
       </div>
 
-      <div className='.navbar--section-mobile'>
+      <div className='navbar--section-mobile'>
         <IconButton
           aria-label="show more"
           aria-controls={mobileMenuId}
