@@ -10,11 +10,11 @@ function Home() {
       <div className="navbar-root"><NavBar /></div>
       <div className="home-hero">
         <Grid container spacing={2} className="home-hero-grid">
-          <Grid item xs={12} md={6} lg={8}>
+          <Grid item xs={12} md={6} lg={7} xl={8}>
             <div className="home-hero-image">
             </div>
           </Grid>
-          <Grid item xs={12} md={6} lg={4}>
+          <Grid item xs={12} md={6} lg={5} xl={4}>
             <div className="home-hero-content">
               <div className="home-hero-content-vscode">
                 <div className="home-hero-content-vscode-icon"></div>
