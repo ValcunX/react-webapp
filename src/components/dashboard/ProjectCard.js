@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -5,12 +6,16 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
-import { getIconForLanguage } from '../../helpers/LanguageIcons';
+import ProjectCardOptionsMenu from './ProjectCardOptionsMenu';
 
+import { getIconForLanguage } from '../../helpers/LanguageIcons';
 import '../../styles/Dashboard.scss';
 
-
 function ProjectCard({ project }) {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
+
   const last_mdate = new Date(Date.parse(project.last_mdate));
 
   return (
@@ -37,6 +42,7 @@ function ProjectCard({ project }) {
               classes= {{ root: 'project-card-options' }}
               onMouseDown={event => event.stopPropagation()}
               onClick={event => {
+                handleClick(event);
                 event.stopPropagation();
                 event.preventDefault();
               }}
@@ -46,6 +52,10 @@ function ProjectCard({ project }) {
           </div>
         </CardContent>
       </CardActionArea>
+      <ProjectCardOptionsMenu 
+        anchorEl={anchorEl}
+        handleClose={handleClose}
+      />
     </Card>
   );
 }
