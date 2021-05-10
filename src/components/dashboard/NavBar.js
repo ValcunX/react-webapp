@@ -11,7 +11,7 @@ import {default as NavBarToolbarMobileMenu} from './NavBar/ToolbarMobileMenu'
 
 import './styles/NavBar.scss';
 
-function NavBar() {
+function NavBar({ onSearch }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -44,7 +44,7 @@ function NavBar() {
         <Toolbar>
           <NavBarIcon />
           <Typography className='navbar--title' variant="h6" noWrap>ValcunX</Typography>
-          <NavBarSearchBar />
+          <NavBarSearchBar onSearch={onSearch} />
           <div className='navbar--grow' />
 
           <NavBarToolbar 

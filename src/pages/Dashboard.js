@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import NavBar from '../components/dashboard/NavBar';
 import { useLocation } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
@@ -12,7 +13,8 @@ import '../styles/Dashboard.scss'
 import fixtures from '../static/fixtures/dashboard.json'
 
 function Dashboard({ width }) {
-  let location = useLocation();  
+  const [searchFilter, setSearchFilter] = useState("");
+  let location = useLocation();
   const queryParams = Object.fromEntries(location.search.slice(1).split('&').map((item) => item.split('=')));
   const getGridListCols = () => {
     if (isWidthUp('xl', width)) return 5;
@@ -24,11 +26,10 @@ function Dashboard({ width }) {
   
   // TODO: Connect backend
   const userProjects = (queryParams['fixtures']) ? fixtures : [];
-  console.log({ userProjects })
 
   return (
     <div class="dashboard-root">
-      <div className="navbar--root"><NavBar /></div>
+      <div className="navbar--root"><NavBar onSearch={setSearchFilter}/></div>
       <div className="dashboard-projects-root">
         <div className="projects-header">
           <Typography className="projects-header-title" variant="h5">
@@ -48,11 +49,12 @@ function Dashboard({ width }) {
         <div className="projects-gridview">
           {/* TODO: Responsive cols */}
           <GridList cellHeight='auto' className='projects-gridlist' cols={getGridListCols()}>
-            {userProjects.map((project) => (
-              <GridListTile key={project._id} cols={1}>
-                <ProjectCard project={project}/>
-              </GridListTile>
-            ))}
+            {userProjects.filter((item) => (searchFilter == "" || item.name.toLowerCase().startsWith(searchFilter)))
+              .map((project) => (
+                <GridListTile key={project._id} cols={1}>
+                  <ProjectCard project={project}/>
+                </GridListTile>
+              ))}
           </GridList> 
         </div>
       </div>

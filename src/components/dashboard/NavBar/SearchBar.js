@@ -3,7 +3,7 @@ import InputBase from '@material-ui/core/InputBase';
 
 import '../styles/NavBar.scss';
 
-function SearchBar() {
+function SearchBar({ onSearch }) {
   return (
     <div className='navbar--search' >
       <div className='navbar--search-icon'>
@@ -16,6 +16,7 @@ function SearchBar() {
           input: 'navbar--search-input-input',
         }}
         inputProps={{ 'aria-label': 'search' }}
+        onChange={(event) => onSearch(event.target.value)}
       />
     </div>
   );
