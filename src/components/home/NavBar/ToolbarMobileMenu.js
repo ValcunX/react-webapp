@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -46,19 +47,23 @@ function ToolbarMobileMenu({id, anchorEl, open, onClose, onProfileMenuOpen}) {
 
       <Divider />
 
-      <MenuItem>
-        <IconButton color="secondary">
-          <PersonAddOutlinedIcon />
-        </IconButton>
-        <Typography variant="subtitle1" color="secondary"> Sign Up</Typography>
-      </MenuItem>
-      
-      <MenuItem onClick={onProfileMenuOpen}>
-        <IconButton color="secondary">
-          <AccountCircleOutlined />
-        </IconButton>
-        <Typography variant="subtitle1" color="secondary"> Sign In</Typography>
-      </MenuItem>
+      <Link to="/signup">
+        <MenuItem>
+          <IconButton color="secondary">
+            <PersonAddOutlinedIcon />
+          </IconButton>
+          <Typography variant="subtitle1" color="secondary"> Sign Up</Typography>
+        </MenuItem>
+      </Link>
+
+      <Link to="/signup">
+        <MenuItem onClick={onProfileMenuOpen}>
+          <IconButton color="secondary">
+            <AccountCircleOutlined />
+          </IconButton>
+          <Typography variant="subtitle1" color="secondary"> Sign In</Typography>
+        </MenuItem>
+      </Link>
     </Menu>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -36,11 +36,13 @@ function Signin() {
           </CardContent>
         </Card>
         <div className='signup-button-div'>
-          <Button variant="outlined" color="primary" classes={{ root: "signup-button" }}>
-            <Typography variant="button">
-              New to ValcunX? <span className='create-an-account'>Create an account.</span>
-            </Typography>
-          </Button>
+          <Link to="/signup">
+            <Button variant="outlined" color="primary" classes={{ root: "signup-button" }}>
+              <Typography variant="button">
+                New to ValcunX? <span className='create-an-account'>Create an account.</span>
+              </Typography>
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

@@ -29,6 +29,10 @@
     color: $text-on-primary;
     border-color: $text-on-primary;
     margin: $theme--spacing * 0 $theme--spacing * 2;
+    
+    .MuiTypography-button {
+        text-transform: none;    
+    }
 }
 
 .home-navbar--section-desktop {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,12 +8,9 @@ import TextField from '@material-ui/core/TextField';
 
 import '../styles/Signup.scss';
 
-
 import PasswordInput from '../components/base/PasswordInput';
 
 function Signup() {
-
-
   return (
     <div className='signup-root'>
       <div className='signup-container'>
@@ -41,11 +39,13 @@ function Signup() {
         </Card>
 
         <div className='signin-button-div'>
-          <Button variant="outlined" color="primary" classes={{ root: "signin-button" }}>
-            <Typography variant="button">
-              Already have an account? <span className='signin'>Sign In</span>
-            </Typography>
-          </Button>
+          <Link to="/signin">
+            <Button variant="outlined" color="primary" classes={{ root: "signin-button" }}>
+              <Typography variant="button">
+                Already have an account? <span className='signin'>Sign In</span>
+              </Typography>
+            </Button>
+          </Link>
         </div>
 
         <div className='tos-div'>
