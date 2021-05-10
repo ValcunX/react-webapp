@@ -80,6 +80,10 @@ $breakpoints: (
     text-overflow: ellipsis;
 }
 
+a {
+    text-decoration: none;
+}
+
 // For theming
 :export {
     $primary: $primary-color;
