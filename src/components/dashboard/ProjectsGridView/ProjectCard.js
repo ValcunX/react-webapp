@@ -8,8 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 import ProjectCardOptionsMenu from './ProjectCardOptionsMenu';
 
-import { getIconForLanguage } from '../../helpers/LanguageIcons';
-import '../../styles/Dashboard.scss';
+import { getIconForLanguage } from '../../../helpers/LanguageIcons';
+import '../../../styles/Dashboard.scss';
 
 function ProjectCard({ project }) {
   const [anchorEl, setAnchorEl] = useState(null);

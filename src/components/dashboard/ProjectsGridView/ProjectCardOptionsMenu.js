@@ -9,7 +9,7 @@ import EditAttributesOutlinedIcon from '@material-ui/icons/EditAttributesOutline
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 
-import '../../styles/Dashboard.scss';
+import '../../../styles/Dashboard.scss';
 
 function ProjectCardOptionsMenu({ anchorEl, handleClose }) {
   return (

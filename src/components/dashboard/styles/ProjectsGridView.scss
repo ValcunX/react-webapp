@@ -1,0 +1,88 @@
+@import '../../../styles/base';
+
+.projects-gridview {
+    // background-color: red;
+    padding: $theme--spacing * 4 $theme--spacing * 4 $theme--spacing * 0 $theme--spacing * 4;
+
+    @include respond-above('sm') {
+        padding: $theme--spacing * 4 $theme--spacing * 8 $theme--spacing * 0 $theme--spacing * 8;
+    }
+
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-y: scroll;
+
+    .projects-gridlist {
+        width: 100%;
+    }
+}
+
+.project-card {
+    margin: 10px;
+    border-radius: $theme--spacing;
+
+    .project-card-media {
+        height: 150px;
+        object-fit: contain;
+    }
+
+    .project-card-content {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        flex: 1 1 0;
+        min-width: 0;
+        // padding: $theme--spacing * 2;
+
+        .project-card-title-col {
+            flex: 1 1 0;
+            min-width: 0;
+            
+            // min-height: 0;
+
+            .project-card-title-row {
+                display: flex;
+                flex: 1 1 0;
+                min-width: 0;
+
+                .project-card-title {
+                    @include truncate-text;
+                }
+
+                .project-card-icon {
+                    flex-shrink: 1;
+                    width: 24px;
+                    height: 24px;
+                    margin-right: $theme--spacing * 1;
+                    object-fit: contain;
+                }
+            }
+
+            .project-card-subtitle-row {
+                display: flex;
+                flex: 1 1 0;
+                min-width: 0;
+
+                .project-card-last-mdate {
+                    color: $ios-systemgray;
+                    @include truncate-text;
+                }
+            }
+        }
+
+        .project-card-option-col {
+            .project-card-options {
+                padding: 0px;
+                width: auto;
+
+                @include respond-above('sm') {
+                    padding: $theme--spacing;
+                }
+
+                .MuiButton-label {
+                    width: 10px;
+                }
+            }
+        }
+    }
+}
