@@ -1,0 +1,22 @@
+@import '../../../styles/base';
+
+.projects-header-grow {
+    flex-grow: 1;
+}
+
+.projects-header {
+    // background-color: aqua;
+    display: flex;
+
+    border-bottom: 1px solid $ios-systemgray4;
+    margin: $theme--spacing * 0 $theme--spacing * 4 $theme--spacing * 0 $theme--spacing * 4;
+    padding: $theme--spacing * 1 $theme--spacing * 4 $theme--spacing * 1 $theme--spacing * 4;
+
+    .projects-header-title {
+        margin-right: $theme--spacing * 1;
+    }
+
+    .new-project-button {
+        border-color: $secondary-color;
+    }
+}
