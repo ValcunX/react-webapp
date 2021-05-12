@@ -18,7 +18,7 @@ function ProjectsGridView({ width, userProjects }) {
     <div className="projects-gridview">
       <GridList cellHeight='auto' className='projects-gridlist' cols={getGridListCols()}>
         {userProjects.map((project) => (
-            <GridListTile key={project._id} cols={1}>
+            <GridListTile key={project.id} cols={1}>
               <ProjectCard project={project} />
             </GridListTile>
           ))}

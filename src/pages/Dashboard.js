@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import NavBar from '../components/dashboard/NavBar';
 import { useLocation } from "react-router-dom";
 import ProjectsGridViewHeader from '../components/dashboard/ProjectsGridViewHeader';
@@ -13,7 +14,14 @@ function Dashboard() {
   const queryParams = Object.fromEntries(location.search.slice(1).split('&').map((item) => item.split('=')));
   
   // TODO: Connect backend
-  const userProjects = (queryParams['fixtures']) ? fixtures : [];
+  var [userProjects, setUserProjects] = useState({});
+  
+  useEffect(async () => {
+    const response = await axios.get('http://localhost:8000/api/users/1/projects/')
+        setUserProjects(response.data);
+        console.log(userProjects);
+  });
+  // const userProjects = (queryParams['fixtures']) ? fixtures : [];
 
   return (
     <div class="dashboard-root">

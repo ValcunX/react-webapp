@@ -24,13 +24,13 @@ function ProjectCard({ project }) {
         <CardMedia
           className='project-card-media'
           title={project.name}
-          src={getIconForLanguage(project.language)}
+          src={getIconForLanguage(project.language.name)}
           component="img"
         />
         <CardContent className='project-card-content'>
           <div className='project-card-title-col'>
             <div className='project-card-title-row'>
-              <img className='project-card-icon' src={getIconForLanguage(project.language)} />
+              <img className='project-card-icon' src={getIconForLanguage(project.language.name)} />
               <Typography variant="subtitle1" className='project-card-title'>{project.name}</Typography>
             </div>
             <div className='project-card-subtitle-row'>
