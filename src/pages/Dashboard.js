@@ -21,10 +21,8 @@ function Dashboard() {
     async function loadData() {
       if(queryParams['fixtures']) return;
 
-      // # TODO: 1 should be replaced with user id with Redux
-      var user_id = 0;
-      users.map(user => (user_id = user.USER_ID))
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user_id}/projects/`)
+      // # TODO: 1 should be replaced with user id with Redu
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${users.USER_ID}/projects/`)
       setUserProjects(response.data);
       setLoading(false);
       console.log(response)

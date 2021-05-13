@@ -9,11 +9,10 @@ import { theme } from './theme'
 import { createStore } from 'redux';
 
 const store = createStore(() => ({
-  users: [
+  users:
     {
       USER_ID: 1,
     }
-  ]
 }));
 
 ReactDOM.render(
