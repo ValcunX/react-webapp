@@ -15,6 +15,13 @@
     .projects-gridlist {
         width: 100%;
     }
+
+    .projects-spinner-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .project-card {

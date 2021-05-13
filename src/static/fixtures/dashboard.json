@@ -1,251 +1,98 @@
 [
     {
-        "_id": "1",
+        "id": "1",
         "name": "Main shade",
-        "language": "nodejs",
-        "user": "Jim Fixtures",
+        "language": {
+            "id": 1,
+            "name": "c",
+            "image_id": "codercom/code-server"
+        },
+        "user": {
+            "id": 1,
+            "name": "Jim Fixtures",
+            "email": "jim@fixtures.com"
+        },
         "volume_id": "1",
         "last_mdate": "2020-12-01T18:47:36.754Z"
     },
     {
-        "_id": "2",
+        "id": "2",
         "name": "Rod themselves",
-        "language": "python",
-        "user": "Jim Fixtures",
+        "language": {
+            "id": 2,
+            "name": "java",
+            "image_id": "codercom/code-server"
+        },
+        "user": {
+            "id": 1,
+            "name": "Jim Fixtures",
+            "email": "jim@fixtures.com"
+        },
         "volume_id": "2",
         "last_mdate": "2020-05-24T18:47:36.754Z"
     },
     {
-        "_id": "3",
+        "id": "3",
         "name": "Young around",
-        "language": "c",
-        "user": "Jim Fixtures",
+        "language": {
+            "id": 3,
+            "name": "python",
+            "image_id": "codercom/code-server"
+        },
+        "user": {
+            "id": 1,
+            "name": "Jim Fixtures",
+            "email": "jim@fixtures.com"
+        },
         "volume_id": "3",
         "last_mdate": "2021-02-06T18:47:36.754Z"
     },
     {
-        "_id": "4",
+        "id": "4",
         "name": "Diagram bell",
-        "language": "csharp",
-        "user": "Jim Fixtures",
+        "language": {
+            "id": 7,
+            "name": "docker",
+            "image_id": "codercom/code-server"
+        },
+        "user": {
+            "id": 1,
+            "name": "Jim Fixtures",
+            "email": "jim@fixtures.com"
+        },
         "volume_id": "4",
         "last_mdate": "2020-10-26T18:47:36.754Z"
     },
     {
-        "_id": "5",
+        "id": "5",
         "name": "Loud citizen",
-        "language": "docker",
-        "user": "Jim Fixtures",
+        "language": {
+            "id": 5,
+            "name": "nodejs",
+            "image_id": "codercom/code-server"
+        },
+        "user": {
+            "id": 1,
+            "name": "Jim Fixtures",
+            "email": "jim@fixtures.com"
+        },
         "volume_id": "5",
         "last_mdate": "2021-10-29T18:47:36.754Z"
     },
     {
-        "_id": "6",
+        "id": "6",
         "name": "Fairly yellow",
-        "language": "java",
-        "user": "Jim Fixtures",
+        "language": {
+            "id": 6,
+            "name": "csharp",
+            "image_id": "codercom/code-server"
+        },
+        "user": {
+            "id": 1,
+            "name": "Jim Fixtures",
+            "email": "jim@fixtures.com"
+        },
         "volume_id": "6",
         "last_mdate": "2019-12-14T18:47:36.754Z"
-    },
-    {
-        "_id": "7",
-        "name": "Better citizen",
-        "language": "javascript",
-        "user": "Jim Fixtures",
-        "volume_id": "7",
-        "last_mdate": "2021-02-7T18:47:36.754Z"
-    },
-    {
-        "_id": "8",
-        "name": "Forth scale",
-        "language": "cpp",
-        "user": "Jim Fixtures",
-        "volume_id": "8",
-        "last_mdate": "2021-03-13T18:47:36.754Z"
-    },
-    {
-        "_id": "9",
-        "name": "Struck bag",
-        "language": "html",
-        "user": "Jim Fixtures",
-        "volume_id": "9",
-        "last_mdate": "2020-10-08T18:47:36.754Z"
-    },
-    {
-        "_id": "10",
-        "name": "Series pure",
-        "language": "nodejs",
-        "user": "Jim Fixtures",
-        "volume_id": "10",
-        "last_mdate": "2020-07-11T18:47:36.754Z"
-    },
-    {
-        "_id": "11",
-        "name": "Fresh shake",
-        "language": "python",
-        "user": "Jim Fixtures",
-        "volume_id": "11",
-        "last_mdate": "2019-07-27T18:47:36.754Z"
-    },
-    {
-        "_id": "12",
-        "name": "Straight century",
-        "language": "c",
-        "user": "Jim Fixtures",
-        "volume_id": "12",
-        "last_mdate": "2020-10-22T18:47:36.754Z"
-    },
-    {
-        "_id": "13",
-        "name": "Shore party",
-        "language": "csharp",
-        "user": "Jim Fixtures",
-        "volume_id": "13",
-        "last_mdate": "2018-12-20T18:47:36.754Z"
-    },
-    {
-        "_id": "14",
-        "name": "Greatly combination",
-        "language": "php",
-        "user": "Jim Fixtures",
-        "volume_id": "14",
-        "last_mdate": "2020-07-01T18:47:36.754Z"
-    },
-    {
-        "_id": "15",
-        "name": "Stairs diagram",
-        "language": "java",
-        "user": "Jim Fixtures",
-        "volume_id": "15",
-        "last_mdate": "2020-12-14T18:47:36.754Z"
-    },
-    {
-        "_id": "16",
-        "name": "Dust sang",
-        "language": "javascript",
-        "user": "Jim Fixtures",
-        "volume_id": "16",
-        "last_mdate": "2020-11-15T18:47:36.754Z"
-    },
-    {
-        "_id": "17",
-        "name": "Better nobody",
-        "language": "cpp",
-        "user": "Jim Fixtures",
-        "volume_id": "17",
-        "last_mdate": "2019-01-30T18:47:36.754Z"
-    },
-    {
-        "_id": "18",
-        "name": "Chamber sitting",
-        "language": "html",
-        "user": "Jim Fixtures",
-        "volume_id": "18",
-        "last_mdate": "2020-10-07T18:47:36.754Z"
-    },
-
-    {
-        "_id": "19",
-        "name": "Dried fierce",
-        "language": "python",
-        "user": "Jim Fixtures",
-        "volume_id": "19",
-        "last_mdate": "2020-09-25T18:47:36.754Z"
-    },
-    {
-        "_id": "20",
-        "name": "Expect property",
-        "language": "c",
-        "user": "Jim Fixtures",
-        "volume_id": "20",
-        "last_mdate": "2020-09-29T18:47:36.754Z"
-    },
-    {
-        "_id": "21",
-        "name": "Row fly",
-        "language": "csharp",
-        "user": "Jim Fixtures",
-        "volume_id": "21",
-        "last_mdate": "2020-12-22T18:47:36.754Z"
-    },
-    {
-        "_id": "22",
-        "name": "Think wait",
-        "language": "php",
-        "user": "Jim Fixtures",
-        "volume_id": "22",
-        "last_mdate": "2020-07-09T18:47:36.754Z"
-    },
-    {
-        "_id": "23",
-        "name": "Half sets",
-        "language": "java",
-        "user": "Jim Fixtures",
-        "volume_id": "23",
-        "last_mdate": "2020-12-01T18:47:36.754Z"
-    },
-    {
-        "_id": "24",
-        "name": "Leaf pour",
-        "language": "javascript",
-        "user": "Jim Fixtures",
-        "volume_id": "24",
-        "last_mdate": "2020-41-03T18:47:36.754Z"
-    },
-    {
-        "_id": "25",
-        "name": "Stick doll",
-        "language": "cpp",
-        "user": "Jim Fixtures",
-        "volume_id": "25",
-        "last_mdate": "2020-11-30T18:47:36.754Z"
-    },
-    {
-        "_id": "26",
-        "name": "Major frame",
-        "language": "html",
-        "user": "Jim Fixtures",
-        "volume_id": "26",
-        "last_mdate": "2020-11-29T18:47:36.754Z"
-    },
-    {
-        "_id": "27",
-        "name": "Floor telephone",
-        "language": "html",
-        "user": "Jim Fixtures",
-        "volume_id": "27",
-        "last_mdate": "2020-05-01T18:47:36.754Z"
-    },
-    {
-        "_id": "28",
-        "name": "Just potatoes",
-        "language": "nodejs",
-        "user": "Jim Fixtures",
-        "volume_id": "28",
-        "last_mdate": "2020-10-25T18:47:36.754Z"
-    },
-    {
-        "_id": "29",
-        "name": "Weak queen",
-        "language": "python",
-        "user": "Jim Fixtures",
-        "volume_id": "29",
-        "last_mdate": "2020-09-03T18:47:36.754Z"
-    },
-    {
-        "_id": "30",
-        "name": "Stepped blew",
-        "language": "c",
-        "user": "Jim Fixtures",
-        "volume_id": "30",
-        "last_mdate": "2020-11-06T18:47:36.754Z"
-    },
-    {
-        "_id": "31",
-        "name": "Forth steep",
-        "language": "html",
-        "user": "Jim Fixtures",
-        "volume_id": "31",
-        "last_mdate": "2020-07-28T18:47:36.754Z"
     }
 ]
