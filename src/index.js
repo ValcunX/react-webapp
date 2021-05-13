@@ -9,7 +9,7 @@ import { theme } from './theme'
 import { createStore } from 'redux';
 
 const store = createStore(() => ({
-  users:
+  user:
     {
       USER_ID: 1,
     }

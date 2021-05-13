@@ -10,7 +10,7 @@ import '../styles/Dashboard.scss'
 import fixtures from '../static/fixtures/dashboard.json'
 
 function Dashboard() {
-  const users = useSelector(state => state.users);
+  const user = useSelector(state => state.user);
   let location = useLocation();
   const queryParams = Object.fromEntries(location.search.slice(1).split('&').map((item) => item.split('=')));
   const [searchFilter, setSearchFilter] = useState("");
@@ -22,7 +22,7 @@ function Dashboard() {
       if(queryParams['fixtures']) return;
 
       // # TODO: 1 should be replaced with user id with Redu
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${users.USER_ID}/projects/`)
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user.USER_ID}/projects/`)
       setUserProjects(response.data);
       setLoading(false);
       console.log(response)
