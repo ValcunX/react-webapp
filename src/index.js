@@ -1,16 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux";
 import './styles/index.scss';
 import App from './App';
 import reportWebVitals from './vitals/reportWebVitals';
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { theme } from './theme'
+import { createStore } from 'redux';
+
+const store = createStore(() => ({
+  user: { USER_ID: 1,}
+}), composeWithDevTools());
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme} >
       <StylesProvider injectFirst>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </StylesProvider>
     </ThemeProvider>
   </React.StrictMode>,
