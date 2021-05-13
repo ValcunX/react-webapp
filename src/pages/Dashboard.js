@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useLocation } from "react-router-dom";
 import NavBar from '../components/dashboard/NavBar';
@@ -9,6 +10,7 @@ import '../styles/Dashboard.scss'
 import fixtures from '../static/fixtures/dashboard.json'
 
 function Dashboard() {
+  const users = useSelector(state => state.users);
   let location = useLocation();
   const queryParams = Object.fromEntries(location.search.slice(1).split('&').map((item) => item.split('=')));
   const [searchFilter, setSearchFilter] = useState("");
@@ -20,7 +22,9 @@ function Dashboard() {
       if(queryParams['fixtures']) return;
 
       // # TODO: 1 should be replaced with user id with Redux
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/1/projects/`)
+      var user_id = 0;
+      users.map(user => (user_id = user.USER_ID))
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user_id}/projects/`)
       setUserProjects(response.data);
       setLoading(false);
       console.log(response)

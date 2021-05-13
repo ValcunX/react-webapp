@@ -6,12 +6,21 @@ import App from './App';
 import reportWebVitals from './vitals/reportWebVitals';
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
 import { theme } from './theme'
+import { createStore } from 'redux';
+
+const store = createStore(() => ({
+  users: [
+    {
+      USER_ID: 1,
+    }
+  ]
+}));
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme} >
       <StylesProvider injectFirst>
-        <Provider store={{"USER_ID":1}}>
+        <Provider store={store}>
           <App />
         </Provider>
       </StylesProvider>
