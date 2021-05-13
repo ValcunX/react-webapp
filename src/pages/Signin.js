@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
@@ -27,8 +27,10 @@ function Signin({ isAuthenticated, auth_loading, error, onAuth, history }) {
     onAuth(data);
   }
 
-  if(isAuthenticated) history.push('/dashboard');
-
+  useEffect(() => {
+    if(isAuthenticated) history.push('/dashboard');
+  }, [isAuthenticated]);
+  
   return (
     <div className='signin-root'>
       <div className='signin-container'>
