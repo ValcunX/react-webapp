@@ -12,21 +12,22 @@ import PasswordInput from '../components/base/PasswordInput';
 
 import '../styles/Signin.scss';
 
-function Signin({ auth_loading, error, onAuth, history }) {
+function Signin({ isAuthenticated, auth_loading, error, onAuth, history }) {
   const emailRef = useRef();
   const passwordRef = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
-      username: emailRef.current.value,
+      email: emailRef.current.value,
       password: passwordRef.current.value
     };
     // # TODO: Validation
 
     onAuth(data);
-    history.push('/dashboard')
   }
+
+  if(isAuthenticated) history.push('/dashboard');
 
   return (
     <div className='signin-root'>
@@ -83,6 +84,7 @@ function Signin({ auth_loading, error, onAuth, history }) {
 
 const mapStateToProps = (state) => {
   return {
+    isAuthenticated: state.token !== null,
     auth_loading: state.auth_loading,
     error: state.error,
   }
@@ -90,7 +92,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAuth: ({ username, password }) => dispatch(actions.authLogin(username, password))
+    onAuth: ({ email, password }) => dispatch(actions.authLogin(email, password))
   }
 }
 

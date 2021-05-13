@@ -12,7 +12,7 @@ import PasswordInput from '../components/base/PasswordInput';
 
 import '../styles/Signup.scss';
 
-function Signup({ auth_loading, error, onAuth, history }) {
+function Signup({ isAuthenticated, auth_loading, error, onAuth, history }) {
   const usernameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -27,8 +27,9 @@ function Signup({ auth_loading, error, onAuth, history }) {
     // # TODO: Validation
 
     onAuth(data);
-    history.push('/dashboard')
   }
+
+  if(isAuthenticated) history.push('/dashboard');
 
   return (
     <div className='signup-root'>
@@ -103,6 +104,7 @@ function Signup({ auth_loading, error, onAuth, history }) {
 
 const mapStateToProps = (state) => {
   return {
+    isAuthenticated: state.token !== null,
     auth_loading: state.auth_loading,
     error: state.error,
   }

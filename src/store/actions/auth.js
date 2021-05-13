@@ -1,4 +1,3 @@
-import { darken } from '@material-ui/core';
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
@@ -42,20 +41,21 @@ export const checkAuthTimeout = (expirationTime) => {
   return dispatch => {
     setTimeout(() => {
       dispatch(logout());
-    }, expirationTime * 1000);
+    }, expirationTime);
   }
 }
 
-export const authLogin = (username, password) => {
+export const authLogin = (email, password) => {
   return dispatch => {
     dispatch(authStart());
-    axios.post(`${process.env.AUTH_URL}/login`, {
-      username: username,
+    axios.post(`${process.env.REACT_APP_AUTH_URL}/login/`, {
+      username: email,
+      email: email,
       password: password
     })
     .then((res) => {
       const token = res.data.key;
-      const user_id = res.data.user_id;
+      const user_id = res.data.user;
 
       const expiration = 3600 * 1000;
       const expirationDate = new Date(new Date().getTime() + expiration);
@@ -73,7 +73,7 @@ export const authLogin = (username, password) => {
 export const authSignup = (username, email, password) => {
   return dispatch => {
     dispatch(authStart());
-    axios.post(`${process.env.AUTH_URL}/registration`, {
+    axios.post(`${process.env.AUTH_URL}/registration/`, {
       username: username,
       email: email,
       password1: password,
@@ -81,7 +81,7 @@ export const authSignup = (username, email, password) => {
     })
     .then((res) => {
       const token = res.data.key;
-      const user_id = res.data.user_id;
+      const user_id = res.data.user;
 
       const expiration = 3600 * 1000;
       const expirationDate = new Date(new Date().getTime() + expiration);
@@ -105,11 +105,12 @@ export const authCheckState = () => {
       dispatch(logout());
     } else {
       const expirationDate = new Date(localStorage.getItem(EXPIRATION_DATE_KEY));
+      
       if(expirationDate <= new Date()) {
         dispatch(logout());
       } else {
         dispatch(authSuccess(token, user_id));
-        dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000));
+        dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime())));
       }
     }
   }
