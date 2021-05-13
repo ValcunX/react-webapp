@@ -10,7 +10,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import '../../styles/Signin.scss';
 import '../../styles/Signup.scss';
 
-function PasswordInput() {
+function PasswordInput({ inputRef }) {
   const [values, setValues] = React.useState({
     password: '',
     showPassword: false,
@@ -27,13 +27,15 @@ function PasswordInput() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  
   return (
     <div>
-      <FormControl variant="outlined" className="sign-password-control">
+      <FormControl required={true} id="password" variant="outlined" className="sign-password-control">
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
           id="outlined-adornment-password"
           className="signin-password"
+          inputRef={inputRef}
           type={values.showPassword ? "text" : "password"}
           value={values.password}
           onChange={handleChange("password")}

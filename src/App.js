@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import './styles/App.scss';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from 'react-redux';
 import * as actions from './store/actions/auth';
@@ -8,6 +7,8 @@ import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
+
+import './styles/App.scss';
 
 function App({ isAuthenticated, onTryAuthSignup }) {
 
@@ -42,4 +43,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);
