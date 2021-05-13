@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from "react-redux";
 import './styles/index.scss';
 import App from './App';
 import reportWebVitals from './vitals/reportWebVitals';
@@ -10,7 +11,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme} >
       <StylesProvider injectFirst>
-        <App />
+        <Provider store={{"USER_ID":1}}>
+          <App />
+        </Provider>
       </StylesProvider>
     </ThemeProvider>
   </React.StrictMode>,
