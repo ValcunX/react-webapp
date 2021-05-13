@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <div className="App">
-      <Provider store={{"user":"demo", "email": "123@123"}}>
+      <Provider store={{"USER_ID":1}}>
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
