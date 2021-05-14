@@ -84,6 +84,11 @@ a {
     text-decoration: none;
 }
 
+.error-message {
+    width: 100%;
+    margin-top: 20px;
+}
+
 // For theming
 :export {
     $primary: $primary-color;

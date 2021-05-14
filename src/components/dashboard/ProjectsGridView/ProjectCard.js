@@ -11,7 +11,7 @@ import ProjectCardOptionsMenu from './ProjectCardOptionsMenu';
 import { getIconForLanguage } from '../../../helpers/LanguageIcons';
 import '../../../styles/Dashboard.scss';
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, onChange }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
@@ -52,9 +52,11 @@ function ProjectCard({ project }) {
           </div>
         </CardContent>
       </CardActionArea>
-      <ProjectCardOptionsMenu 
+      <ProjectCardOptionsMenu
+        project_id={project.id}
         anchorEl={anchorEl}
         handleClose={handleClose}
+        onChange={onChange}
       />
     </Card>
   );

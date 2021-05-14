@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+import axios from 'axios';
 import Typography from '@material-ui/core/Typography';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -11,7 +13,25 @@ import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
 
 import '../../../styles/Dashboard.scss';
 
-function ProjectCardOptionsMenu({ anchorEl, handleClose }) {
+
+function ProjectCardOptionsMenu({ project_id, anchorEl, handleClose, onChange }) {
+  const [deleting, setDeleting] = useState(false);
+  const handleDelete = async () => {
+    setDeleting(true);
+    
+    try {
+      const response = await axios({
+        method: 'delete',
+        url: `${process.env.REACT_APP_API_URL}/projects/${project_id}/`
+      });
+      console.log(response)
+    } catch (ex) {}
+    
+    setDeleting(false);
+    handleClose();
+    onChange();
+  }
+
   return (
     <Menu 
       anchorEl={anchorEl}
@@ -45,12 +65,13 @@ function ProjectCardOptionsMenu({ anchorEl, handleClose }) {
       <Divider />
 
       {/* TODO: show if the project is closed */}
-      <MenuItem onClick={handleClose}>
+      <MenuItem onClick={handleDelete} disabled={deleting}>
         <IconButton color="error" size="small">
           <DeleteOutlineOutlinedIcon color="error" />
         </IconButton>
-        <Typography variant="body1" color="error">Delete</Typography>
+        <Typography variant="body1" color="error">Delete</Typography>        
       </MenuItem>
+
 
       {/* TODO: show if the project is open */}
       <MenuItem onClick={handleClose}>

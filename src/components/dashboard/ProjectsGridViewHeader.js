@@ -6,7 +6,7 @@ import NewProjectDialog from './ProjectsGridViewHeader/NewProjectDialog';
 
 import './styles/ProjectsGridViewHeader.scss';
 
-function ProjectsGridViewHeader() {
+function ProjectsGridViewHeader({ handleNew }) {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -26,9 +26,12 @@ function ProjectsGridViewHeader() {
       >
         <Typography variant="button">New</Typography>
       </Button>
-      <NewProjectDialog 
+      <NewProjectDialog
         open={open}
-        handleClose={handleClose}
+        handleClose={() => {
+          handleClose()
+          handleNew()
+        }}
       />
     </div>
   );

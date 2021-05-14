@@ -20,7 +20,7 @@ import {default as python} from '../static/icons/python.svg';
 const map = {
   "c": c,
   "cpp": cpp,
-  "csharp": csharp,
+  "c#": csharp,
   "css": css,
   "django": django,
   "docker": docker,
@@ -39,5 +39,5 @@ const map = {
 }
 
 export function getIconForLanguage(language) {
-  return map[language];
+  return map[language.toLowerCase()];
 }
