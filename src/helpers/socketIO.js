@@ -18,6 +18,11 @@ export const createVolume = (callback) => {
   io.emit('create_volume', callback)
 }
 
+export const deleteVolume = (volume_id, callback) => {
+  console.log("deleteVolume");
+  io.emit('delete_volume', volume_id, callback)
+}
+
 export const openProject = (project, callback) => {
   console.log("openProject");
   io.emit('open_project', project, callback)

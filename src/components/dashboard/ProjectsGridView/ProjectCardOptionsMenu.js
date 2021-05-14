@@ -10,7 +10,7 @@ import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import EditAttributesOutlinedIcon from '@material-ui/icons/EditAttributesOutlined';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
-import { closeProject } from '../../../helpers/socketIO';
+import { closeProject, deleteVolume } from '../../../helpers/socketIO';
 
 import '../../../styles/Dashboard.scss';
 
@@ -21,6 +21,10 @@ function ProjectCardOptionsMenu({ project, anchorEl, handleOpen, handleClose, on
   const handleDelete = async () => {
     setDeleting(true);
     
+    try {
+      deleteVolume(project.volume_id, console.log);
+    } catch (ex) {}
+
     try {
       const response = await axios({
         method: 'delete',
