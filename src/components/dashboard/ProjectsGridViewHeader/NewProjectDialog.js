@@ -1,3 +1,5 @@
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -13,18 +15,33 @@ import Select from '@material-ui/core/Select';
 import '../styles/ProjectsGridViewHeader.scss';
 
 function NewProjectDialog({ open, handleClose }) {
+  const [languages, setLanguages] = useState([]);
+  const [langLoading, setLangLoading] = useState(true);
+
+  useEffect(() => {
+    console.log(langLoading);
+    if(!langLoading) return;
+
+    async function loadLanguages() {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/languages/`)
+      setLanguages(response.data);
+      setLangLoading(false);
+      console.log({url: `${process.env.REACT_APP_API_URL}/languages/`, data: response.data});
+    }
+    loadLanguages();
+  }, [langLoading]);
+
   return (
     <Dialog open={open} fullWidth={true} onClose={handleClose} classes={{ root: 'new-dialog-root', paper: 'new-dialog' }}>
       <DialogTitle className="new-dialog-title">Create New Project</DialogTitle>
       <DialogContent className="new-dialog-content">
         <TextField autoFocus fullWidth variant="outlined" id="name" label="Project Name" type="text" className="new-dialog-proj-name"/>
-        <FormControl fullWidth variant="outlined" className="new-dialog-proj-lang">
+        <FormControl fullWidth variant="outlined" className="new-dialog-proj-lang" disabled={langLoading}>
           <InputLabel>Programming Language</InputLabel>
           <Select id="demo-simple-select-outlined" label="Programming Language">
-            {/* TODO: Get list from backend */}
-            <MenuItem value={1}>Python3</MenuItem>
-            <MenuItem value={2}>C</MenuItem>
-            <MenuItem value={3}>Java</MenuItem>
+            {languages.map((language) => {
+              return <MenuItem value={language.id}>{language.name}</MenuItem>
+            })}
           </Select>
         </FormControl>
       </DialogContent>

@@ -25,7 +25,7 @@ function Dashboard({ isAuthenticated, user_id, history, logout }) {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user_id}/projects/`)
       setUserProjects(response.data);
       setLoading(false);
-      console.log(response)
+      console.log(response);
     }
     loadData();
   }, [isAuthenticated]);
