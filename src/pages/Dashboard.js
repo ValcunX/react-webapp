@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useLocation } from "react-router-dom";
+import { connect } from 'react-redux';
+import * as actions from '../store/actions/auth';
 import NavBar from '../components/dashboard/NavBar';
 import ProjectsGridViewHeader from '../components/dashboard/ProjectsGridViewHeader';
 import ProjectsGridView from '../components/dashboard/ProjectsGridView';
@@ -9,8 +10,7 @@ import ProjectsGridView from '../components/dashboard/ProjectsGridView';
 import '../styles/Dashboard.scss'
 import fixtures from '../static/fixtures/dashboard.json'
 
-function Dashboard() {
-  const user = useSelector(state => state.user);
+function Dashboard({ isAuthenticated, user_id, history, logout }) {
   let location = useLocation();
   const queryParams = Object.fromEntries(location.search.slice(1).split('&').map((item) => item.split('=')));
   const [searchFilter, setSearchFilter] = useState("");
@@ -18,21 +18,26 @@ function Dashboard() {
   const [userProjects, setUserProjects] = useState((queryParams['fixtures']) ? fixtures : []);
   
   useEffect(() => {
-    async function loadData() {
-      if(queryParams['fixtures']) return;
+    if(queryParams['fixtures']) return;
+    if(!isAuthenticated) history.push('/signin')
 
-      // # TODO: 1 should be replaced with user id with Redu
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user.USER_ID}/projects/`)
+    async function loadData() {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user_id}/projects/`)
       setUserProjects(response.data);
       setLoading(false);
       console.log(response)
     }
     loadData();
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <div class="dashboard-root">
-      <div className="navbar--root"><NavBar onSearch={setSearchFilter}/></div>
+      <div className="navbar--root">
+        <NavBar 
+          onSearch={setSearchFilter}
+          onLogout={logout}
+        />
+      </div>
       <div className="dashboard-projects-root">
         <ProjectsGridViewHeader />
         <ProjectsGridView 
@@ -45,4 +50,18 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.token !== null,
+    user_id: state.user_id
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(actions.logout()) 
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+

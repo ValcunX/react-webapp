@@ -11,7 +11,7 @@ import {default as NavBarToolbarMobileMenu} from './NavBar/ToolbarMobileMenu'
 
 import './styles/NavBar.scss';
 
-function NavBar({ onSearch }) {
+function NavBar({ onSearch, onLogout }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -64,7 +64,13 @@ function NavBar({ onSearch }) {
         onProfileMenuOpen={handleProfileMenuOpen} 
       />
 
-      <NavBarToolbarMenu anchorEl={anchorEl} id={menuId} open={isMenuOpen} onClose={handleMenuClose} />      
+      <NavBarToolbarMenu 
+        anchorEl={anchorEl} 
+        id={menuId} 
+        open={isMenuOpen} 
+        onClose={handleMenuClose} 
+        onLogout={onLogout}
+      />      
     </div>
   );
 }

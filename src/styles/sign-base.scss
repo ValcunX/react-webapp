@@ -23,11 +23,11 @@
         padding: 0px;
     }
 
-    .#{$base-class}-username, .#{$base-class}-email, .#{$base-class}-button {
+    .#{$base-class}-username, .#{$base-class}-email, .#{$base-class}-button, .#{$base-class}-error-message {
         width: 100%;
     }
 
-    .#{$base-class}-email, .#{$base-class}-button {
+    .#{$base-class}-email, .#{$base-class}-button, .#{$base-class}-error-message {
         margin-top: 20px;
     }
 }

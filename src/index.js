@@ -5,13 +5,16 @@ import './styles/index.scss';
 import App from './App';
 import reportWebVitals from './vitals/reportWebVitals';
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import { theme } from './theme'
-import { createStore } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import reducer from './store/reducers/auth'
 
-const store = createStore(() => ({
-  user: { USER_ID: 1,}
-}), composeWithDevTools());
+const composeEnhances = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(reducer, composeEnhances(
+  applyMiddleware(thunk)
+));
 
 ReactDOM.render(
   <React.StrictMode>

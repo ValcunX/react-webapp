@@ -3,7 +3,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import '../styles/NavBar.scss';
 
-function ToolbarMenu({ id, anchorEl, open, onClose}) {
+function ToolbarMenu({ id, anchorEl, open, onClose, onLogout }) {
   return (
     <Menu
       anchorEl={anchorEl}
@@ -14,8 +14,10 @@ function ToolbarMenu({ id, anchorEl, open, onClose}) {
       open={open}
       onClose={onClose}
     >
+      {/* TODO: Add icons */}
       <MenuItem onClick={onClose}>Profile</MenuItem>
       <MenuItem onClick={onClose}>My account</MenuItem>
+      <MenuItem onClick={onLogout}>Logout</MenuItem>
     </Menu>
   );
 }
