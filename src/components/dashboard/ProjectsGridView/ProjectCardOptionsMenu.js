@@ -39,16 +39,17 @@ function ProjectCardOptionsMenu({ project, anchorEl, handleOpen, handleClose, on
   }
 
   const handleProjClose = async () => {
-    setDeleting(true);
+    setClosing(true);
 
     try {
       closeProject(project, (res) => {
         console.log({ project_status_close: res })
+        setClosing(false);
       })
+    } catch(ex) {
+      setClosing(false);
     }
-    catch(ex) {}
     
-    setDeleting(false);
     handleClose();
   }
 
