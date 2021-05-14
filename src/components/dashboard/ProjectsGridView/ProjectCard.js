@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -7,20 +8,34 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 import ProjectCardOptionsMenu from './ProjectCardOptionsMenu';
+import { openProject } from '../../../helpers/socketIO';
 
 import { getIconForLanguage } from '../../../helpers/LanguageIcons';
 import '../../../styles/Dashboard.scss';
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, onChange }) {
+  const location = useLocation()
   const [anchorEl, setAnchorEl] = useState(null);
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
   const last_mdate = new Date(Date.parse(project.last_mdate));
 
+  const handleOpen = async () => {
+    console.log("handleOpen")
+    openProject(project, (port) => {
+      console.log(port)
+      if(!port) return;
+
+      const url = `http://${window.location.hostname}:${port}`
+      console.log({url})
+      window.open(url, '_blank');
+    })
+  }
+
   return (
     <Card className='project-card' elevation="2">
-      <CardActionArea>
+      <CardActionArea onClick={handleOpen}>
         <CardMedia
           className='project-card-media'
           title={project.name}
@@ -52,9 +67,12 @@ function ProjectCard({ project }) {
           </div>
         </CardContent>
       </CardActionArea>
-      <ProjectCardOptionsMenu 
+      <ProjectCardOptionsMenu
+        project={project}
         anchorEl={anchorEl}
         handleClose={handleClose}
+        onChange={onChange}
+        handleOpen={handleOpen}
       />
     </Card>
   );

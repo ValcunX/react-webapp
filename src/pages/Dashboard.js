@@ -12,21 +12,22 @@ import fixtures from '../static/fixtures/dashboard.json'
 
 function Dashboard({ isAuthenticated, user_id, history, logout }) {
   let location = useLocation();
+
   const queryParams = Object.fromEntries(location.search.slice(1).split('&').map((item) => item.split('=')));
   const [searchFilter, setSearchFilter] = useState("");
   const [isLoading, setLoading] = useState(!queryParams['fixtures']);
   const [userProjects, setUserProjects] = useState((queryParams['fixtures']) ? fixtures : []);
-  
+
+  const loadData = async () => {
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user_id}/projects/`)
+    setUserProjects(response.data);
+    setLoading(false);
+    console.log(response);
+  }
+
   useEffect(() => {
     if(queryParams['fixtures']) return;
     if(!isAuthenticated) history.push('/signin')
-
-    async function loadData() {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user_id}/projects/`)
-      setUserProjects(response.data);
-      setLoading(false);
-      console.log(response)
-    }
     loadData();
   }, [isAuthenticated]);
 
@@ -39,10 +40,13 @@ function Dashboard({ isAuthenticated, user_id, history, logout }) {
         />
       </div>
       <div className="dashboard-projects-root">
-        <ProjectsGridViewHeader />
+        <ProjectsGridViewHeader 
+          handleNew={loadData}
+        />
         <ProjectsGridView 
           userProjects={userProjects.filter((item) => (searchFilter === "" || item.name.toLowerCase().startsWith(searchFilter)))} 
           isLoading={isLoading}
+          onChange={loadData}
         />
       </div>
       {/* <div className="dashboard-footer">#Todo: Footer</div> */}

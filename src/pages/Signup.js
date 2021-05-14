@@ -77,7 +77,7 @@ function Signup({ isAuthenticated, auth_loading, error, onAuth, history }) {
                     <Typography variant="button">Sign Up</Typography>
                   </Button>
 
-                  <div className='signin-error-message'><Typography variant="caption1" color="error">{error}</Typography></div>
+                  <div className='error-message'><Typography variant="caption1" color="error">{error}</Typography></div>
                 </form>
               </CardContent>
             </Card>

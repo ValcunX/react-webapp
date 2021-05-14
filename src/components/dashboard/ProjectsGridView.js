@@ -6,7 +6,7 @@ import ProjectCard from './ProjectsGridView/ProjectCard';
 
 import './styles/ProjectsGridView.scss';
 
-function ProjectsGridView({ width, userProjects, isLoading }) {
+function ProjectsGridView({ width, userProjects, isLoading, onChange }) {
   const getGridListCols = () => {
     if (isWidthUp('xl', width)) return 5;
     if (isWidthUp('lg', width)) return 4;
@@ -25,7 +25,7 @@ function ProjectsGridView({ width, userProjects, isLoading }) {
         <GridList cellHeight='auto' className='projects-gridlist' cols={getGridListCols()}>
           {userProjects.map((project) => (
               <GridListTile key={project.id} cols={1}>
-                <ProjectCard project={project} />
+                <ProjectCard project={project} onChange={onChange} />
               </GridListTile>
             ))}
         </GridList>
