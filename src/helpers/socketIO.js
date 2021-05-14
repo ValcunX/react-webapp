@@ -2,11 +2,16 @@ import openSocket from 'socket.io-client';
 
 const io = openSocket(process.env.REACT_APP_CNTL_URL);
 
+const serverResponse = {
+  print_status: ({ message }) => console.log(message),
+  redirect: ({ url }) => {}
+}
+
 io.on('connect', () => {
   console.log("Connected to Controller Sever");
 })
 
-io.on('server_response', console.log)
+io.on('server_response', (res) => {serverResponse[res['function']](res['args'])})
 
 export const createVolume = (callback) => {
   console.log("createVolume");
