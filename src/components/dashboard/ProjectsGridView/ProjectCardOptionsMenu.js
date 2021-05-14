@@ -10,19 +10,21 @@ import FileCopyOutlinedIcon from '@material-ui/icons/FileCopyOutlined';
 import EditAttributesOutlinedIcon from '@material-ui/icons/EditAttributesOutlined';
 import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import CancelOutlinedIcon from '@material-ui/icons/CancelOutlined';
+import { closeProject } from '../../../helpers/socketIO';
 
 import '../../../styles/Dashboard.scss';
 
 
-function ProjectCardOptionsMenu({ project_id, anchorEl, handleClose, onChange }) {
+function ProjectCardOptionsMenu({ project, anchorEl, handleOpen, handleClose, onChange }) {
   const [deleting, setDeleting] = useState(false);
+  const [closing, setClosing] = useState(false);
   const handleDelete = async () => {
     setDeleting(true);
     
     try {
       const response = await axios({
         method: 'delete',
-        url: `${process.env.REACT_APP_API_URL}/projects/${project_id}/`
+        url: `${process.env.REACT_APP_API_URL}/projects/${project.id}/`
       });
       console.log(response)
     } catch (ex) {}
@@ -32,6 +34,20 @@ function ProjectCardOptionsMenu({ project_id, anchorEl, handleClose, onChange })
     onChange();
   }
 
+  const handleProjClose = async () => {
+    setDeleting(true);
+
+    try {
+      closeProject(project, (res) => {
+        console.log({ project_status_close: res })
+      })
+    }
+    catch(ex) {}
+    
+    setDeleting(false);
+    handleClose();
+  }
+
   return (
     <Menu 
       anchorEl={anchorEl}
@@ -39,7 +55,10 @@ function ProjectCardOptionsMenu({ project_id, anchorEl, handleClose, onChange })
       open={Boolean(anchorEl)}
       onClose={handleClose}
     >
-      <MenuItem onClick={handleClose}>
+      <MenuItem onClick={() => {
+        handleOpen()
+        handleClose()
+      }}>
         <IconButton color="secondary" size="small">
           <OpenInNewOutlinedIcon />
         </IconButton>
@@ -74,7 +93,7 @@ function ProjectCardOptionsMenu({ project_id, anchorEl, handleClose, onChange })
 
 
       {/* TODO: show if the project is open */}
-      <MenuItem onClick={handleClose}>
+      <MenuItem onClick={handleProjClose} disabled={closing}>
         <IconButton color="error" size="small">
           <CancelOutlinedIcon color="error" />
         </IconButton>
