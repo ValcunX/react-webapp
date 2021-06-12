@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
+import Cookies from 'js-cookie';
 
 const TOKEN_KEY = 'token';
 const USER_ID_KEY = 'user_id';
@@ -48,10 +49,19 @@ export const checkAuthTimeout = (expirationTime) => {
 export const authLogin = (email, password) => {
   return dispatch => {
     dispatch(authStart());
-    axios.post(`${process.env.REACT_APP_AUTH_URL}/login/`, {
-      username: email,
-      email: email,
-      password: password
+    
+    axios({
+      method: 'post',
+      url: `${process.env.REACT_APP_AUTH_URL}/login/`,
+      headers: { 
+        'X-CSRFToken': Cookies.get('csrftoken'), 
+        'Content-Type': 'application/json', 
+      },
+      data: {
+        username: email,
+        email: email,
+        password: password
+      }
     })
     .then((res) => {
       const token = res.data.key;
@@ -66,18 +76,30 @@ export const authLogin = (email, password) => {
       dispatch(authSuccess(token, user_id));
       dispatch(checkAuthTimeout(expiration));
     })
-    .catch((error) => dispatch(authFail(error)))
+    .catch((error) => {
+      console.error(error);
+      dispatch(authFail(error));
+    })
   }
 }
 
 export const authSignup = (username, email, password) => {
   return dispatch => {
     dispatch(authStart());
-    axios.post(`${process.env.REACT_APP_AUTH_URL}/registration/`, {
-      username: username,
-      email: email,
-      password1: password,
-      password2: password
+    
+    axios({
+      method: 'post',
+      url: `${process.env.REACT_APP_AUTH_URL}/registration/`,
+      headers: { 
+        'X-CSRFToken': Cookies.get('csrftoken'), 
+        'Content-Type': 'application/json', 
+      },
+      data: {
+        username: username,
+        email: email,
+        password1: password,
+        password2: password
+      }
     })
     .then((res) => {
       const token = res.data.key;
