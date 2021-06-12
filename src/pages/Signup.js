@@ -20,7 +20,7 @@ function Signup({ isAuthenticated, auth_loading, error, onAuth, history }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
-      username: emailRef.current.value,
+      username: usernameRef.current.value,
       email: emailRef.current.value,
       password: passwordRef.current.value
     };

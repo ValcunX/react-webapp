@@ -19,6 +19,8 @@ function Dashboard({ isAuthenticated, user_id, history, logout }) {
   const [userProjects, setUserProjects] = useState((queryParams['fixtures']) ? fixtures : []);
 
   const loadData = async () => {
+    if(!user_id) return;
+    
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/${user_id}/projects/`)
     setUserProjects(response.data);
     setLoading(false);
