@@ -73,7 +73,7 @@ export const authLogin = (email, password) => {
 export const authSignup = (username, email, password) => {
   return dispatch => {
     dispatch(authStart());
-    axios.post(`${process.env.AUTH_URL}/registration/`, {
+    axios.post(`${process.env.REACT_APP_AUTH_URL}/registration/`, {
       username: username,
       email: email,
       password1: password,
