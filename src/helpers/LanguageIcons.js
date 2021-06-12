@@ -21,6 +21,7 @@ const map = {
   "c": c,
   "cpp": cpp,
   "c#": csharp,
+  "csharp": csharp,
   "css": css,
   "django": django,
   "docker": docker,
