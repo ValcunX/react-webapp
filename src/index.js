@@ -5,16 +5,9 @@ import './styles/index.scss';
 import App from './App';
 import reportWebVitals from './vitals/reportWebVitals';
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
-import { theme } from './theme'
-import { createStore, compose, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import reducer from './store/reducers/auth';
-
-const composeEnhances = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
-const store = createStore(reducer, composeEnhances(
-  applyMiddleware(thunk)
-));
+import { theme } from './theme';
+import { store } from './store';
+import './helpers/axios';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -53,8 +53,7 @@ export const authLogin = (email, password) => {
     axios({
       method: 'post',
       url: `${process.env.REACT_APP_AUTH_URL}/login/`,
-      headers: { 
-        'X-CSRFToken': Cookies.get('csrftoken'), 
+      headers: {
         'Content-Type': 'application/json', 
       },
       data: {
@@ -90,8 +89,7 @@ export const authSignup = (username, email, password) => {
     axios({
       method: 'post',
       url: `${process.env.REACT_APP_AUTH_URL}/registration/`,
-      headers: { 
-        'X-CSRFToken': Cookies.get('csrftoken'), 
+      headers: {
         'Content-Type': 'application/json', 
       },
       data: {
