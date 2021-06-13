@@ -44,6 +44,7 @@ function Dashboard({ isAuthenticated, user_id, history, logout }) {
       <div className="dashboard-projects-root">
         <ProjectsGridViewHeader 
           handleNew={loadData}
+          isLoading={isLoading}
         />
         <ProjectsGridView 
           userProjects={userProjects.filter((item) => (searchFilter === "" || item.name.toLowerCase().startsWith(searchFilter)))} 
