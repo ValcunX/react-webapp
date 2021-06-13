@@ -6,7 +6,7 @@ import NewProjectDialog from './ProjectsGridViewHeader/NewProjectDialog';
 
 import './styles/ProjectsGridViewHeader.scss';
 
-function ProjectsGridViewHeader({ handleNew }) {
+function ProjectsGridViewHeader({ handleNew, isLoading }) {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -17,22 +17,26 @@ function ProjectsGridViewHeader({ handleNew }) {
         Your Projects
       </Typography>
       <div className="projects-header-grow"></div>
-      <Button variant="outlined"
-        color="secondary"
-        disableElevation
-        startIcon={<AddCircleOutlinedIcon />}
-        classes={{ root: "new-project-button" }}
-        onClick={handleClickOpen}
-      >
-        <Typography variant="button">New</Typography>
-      </Button>
-      <NewProjectDialog
-        open={open}
-        handleClose={() => {
-          handleClose()
-          handleNew()
-        }}
-      />
+      {!isLoading &&
+        <>
+          <Button variant="outlined"
+            color="secondary"
+            disableElevation
+            startIcon={<AddCircleOutlinedIcon />}
+            classes={{ root: "new-project-button" }}
+            onClick={handleClickOpen}
+          >
+            <Typography variant="button">New</Typography>
+          </Button> 
+          <NewProjectDialog
+            open={open}
+            handleClose={() => {
+              handleClose()
+              handleNew()
+            }}
+          />
+        </>
+      }
     </div>
   );
 }
